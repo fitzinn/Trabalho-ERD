@@ -45,10 +45,47 @@ void bubbleSort(int array[], int n) {
 }
 
 //Merge Sort: Um algoritmo eficiente que divide a lista, ordena as partes e depois as mescla.
-void mergeSort(int array[], int n) {
+void merge(int esquerdo[], int tamEsq, int direito[], int tamDir, int array[]) {
+    int i = 0; //indice do array original
+    int e = 0; //indice do array esquerdo
+    int d = 0; //indice do array direito
 
+    while(e < tamEsq && d < tamDir) {
+        if(esquerdo[e] <= direito[d]) {
+            array[i++] = esquerdo[e++];
+        } else {
+            array[i++] = direito[d++];
+        }
+    }
+    while(e < tamEsq) {
+        array[i++] = esquerdo[e++];
+    }
+    while(d < tamDir) {
+        array[i++] = direito[d++];
+    }
 }
 
+// Função principal do Merge Sort
+void mergeSort(int array[], int n) {
+    if(n <= 1) {
+        return;
+    }
+
+    int meio = n / 2;
+    int esquerdo[meio];
+    int direito[n - meio];
+
+    for(int i = 0; i < meio; i++) {
+        esquerdo[i] = array[i];
+    }
+    for(int i = meio; i < n; i++) {
+        direito[i - meio] = array[i];
+    }
+
+    mergeSort(esquerdo, meio);
+    mergeSort(direito, n - meio);
+    merge(esquerdo, meio, direito, n - meio, array);
+}
 
 //Quick Sort: Um algoritmo rápido que usa a estratégia de dividir e conquistar.
 void quickSort(int array[], int n) {
