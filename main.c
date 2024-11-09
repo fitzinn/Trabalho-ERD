@@ -20,7 +20,15 @@ void selectionSort(int array[], int n) {
 
 //Insertion Sort: Constrói a lista final um item de cada vez, como organizar cartas de baralho na mão.
 void insertionSort(int array[], int n) {
-
+  for(int i = 1; i < n; i++){
+    int temp = array[i];
+    int j = i - 1;
+    while(j >= 0 && array[j] > temp) {
+      array[j + 1] = array[j];
+      j--;
+    }
+    array[j + 1] = temp;
+  }
 }
 
 //Bubble Sort: Compara pares adjacentes e os troca se estiverem fora de ordem.
