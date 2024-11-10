@@ -88,8 +88,35 @@ void mergeSort(int array[], int n) {
 }
 
 //Quick Sort: Um algoritmo rápido que usa a estratégia de dividir e conquistar.
-void quickSort(int array[], int n) {
+int partition(int array[], int comeco, int final){
+  int pivo = array[final];
+  int i = comeco - 1;
 
+  for(int j = comeco; j < final; j++){
+    if(array[j] < pivo){
+      i++;
+      int temp = array[i];
+      array[i] = array[j];
+      array[j] = temp;
+    }
+  }
+  i++;
+  int temp = array[i];
+  array[i] = array[final];
+  array[final] = temp;
+
+  return i;
+}
+
+void quickSort(int array[], int comeco, int final) {
+    if(final <= comeco) {
+        return;
+    }
+
+    int pivo = partition(array, comeco, final);
+
+    quickSort(array, comeco, pivo - 1);
+    quickSort(array, pivo + 1, final);
 }
 
 
