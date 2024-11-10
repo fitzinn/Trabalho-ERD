@@ -36,22 +36,31 @@ O programa irá gerar um array aleatório de números e medir o tempo de execuç
 
 Ao executar o programa, a saída será semelhante a:
 
-Selection Sort com 100000 elementos: 12.345678 segundos
+Array antes da ordenação: 2 9 4 7 1 8 3 6 5
 
-Insertion Sort com 100000 elementos: 10.234567 segundos
+Array após ordenação SELECTION: 1 2 3 4 5 6 7 8 9
 
-Bubble Sort com 100000 elementos: 15.678910 segundos
+Tempo de execução SELECTION: 0.001000 segundos
+Array após ordenação INSERTION: 1 2 3 4 5 6 7 8 9
 
-Merge Sort com 100000 elementos: 0.123456 segundos
+Tempo de execução INSERTION: 0.000000 segundos
 
-Quick Sort com 100000 elementos: 0.098765 segundos
+Array após ordenação BUBBLE: 1 2 3 4 5 6 7 8 9
+Tempo de execução BUBBLE: 0.002000 segundos
 
-Heap Sort com 100000 elementos: 0.567890 segundos
+Array após ordenação MERGE: 1 2 3 4 5 6 7 8 9
+Tempo de execução MERGE: 0.000000 segundos
+
+Array após ordenação QUICK: 1 2 3 4 5 6 7 8 9
+Tempo de execução QUICK: 0.000000 segundos
+
+Array após ordenação HEAP: 1 2 3 4 5 6 7 8 9
+Tempo de execução HEAP: 0.000000 segundos
 
 ## Personalização
-Para testar outros tamanhos de arrays, modifique o código-fonte (main.c) na seção onde os arrays são gerados e ajuste o tamanho desejado.
+Para testar outros tamanhos de arrays, modifique o código-fonte (main.c) no próprio tamanho do array, não esqueça de mudar o arrayCopia também.
 
 ## Tecnologias e Bibliotecas Utilizadas
 Linguagem de Programação C
 
-Biblioteca Padrão time.h para medição do tempo de execução
+Biblioteca Padrão time.h para medição do tempo de execução, stdlib.h para inserir números aleatórios no array usando srand e stdio.h para manipular entrada e saída de dados.
