@@ -121,8 +121,44 @@ void quickSort(int array[], int comeco, int final) {
 
 
 //Heap Sort: Utiliza uma estrutura de dados chamada heap para ordenar os elementos.
-void heapSort(int array[], int n) {
+void heapify(int array[], int n, int i){
+  int maior = i; //maior é raiz
+  int esquerda = 2 * i + 1; //filho esquerda
+  int direita = 2 * i + 2; //filho direita
 
+  //se filho esquerda for maior q raiz
+  if(esquerda < n && array[esquerda] > array[maior]) {
+    maior = esquerda;
+  }
+  //se filho direita maior que o maior
+  if(direita < n && array[direita] > array[maior]) {
+    maior = direita;
+  }
+  //se maior não é raiz
+  if(maior!= i) {
+    int temp = array[i];
+    array[i] = array[maior];
+    array[maior] = temp;
+
+    heapify(array, n, maior);
+  }
+}
+
+void heapSort(int array[], int n) {
+  for(int i = n / 2 -1; i >= 0; i--){
+    heapify(array, n, i);
+  }
+
+  //tira de um em um
+  for(int i = n - 1; i > 0; i--){
+    //move raiz atual para final
+    int temp = array[0];
+    array[0] = array[i];
+    array[i] = temp;
+
+    //chama dnv para raiz reduzida
+    heapify(array, i, 0);
+  }
 }
 
 
